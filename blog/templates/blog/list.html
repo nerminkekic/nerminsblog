@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+
+{% block content %}
+{% for post in object_list  %}
+<ul class="list-unstyled">
+    <li>
+       <div class="blog-post">
+            <h2 class="blog-post-title">{{ post.post_title }}</h2>
+            <p class="blog-post-meta">{{ post.post_date }} <a href="#">{{ post.post_author }}</a></p>
+            {% autoescape off %}
+            <p>{{ post.post_body }}</p>
+            {% endautoescape %} 
+    </div><!-- /.blog-post -->
+</li>
+</ul>
+{% endfor %}
+{% endblock  %}
